@@ -7,6 +7,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Bson.Serialization;
+using Infrastructure.Interfaces;
+using API.Application.Factories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,10 @@ builder.Services.AddSingleton(sp =>
 
 // Register repositories and context
 builder.Services.AddScoped<IUserRepositoryAlias, UserRepository>();
+builder.Services.AddScoped<ITodoItemRepository, TodoItemRepository>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<TodoItemFactory>();
+
 builder.Services.AddScoped(typeof(BaseContext<>));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 

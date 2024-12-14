@@ -9,7 +9,7 @@ namespace Domain.TodoItemAggregate
         public bool IsCompleted { get; private set; }
         public DateTime UpdatedAt { get; private set; }
         public Guid CreatorId { get; private set; }
-        public List<User> Assignee { get; private set; }
+        public List<Assignee> Assignee { get; private set; }
         public int Priority { get; private set; }
         public DateTime DueDate { get; private set; }
 
@@ -51,43 +51,48 @@ namespace Domain.TodoItemAggregate
             return this;
         }
 
-        public TodoItem AssignToUser(User user)
+        public TodoItem AssignToUser(Assignee user)
         {
             Assignee.Add(user);
             UpdatedAt = DateTime.UtcNow;
             return this;
         }
 
-        public TodoItem RemoveAssignee(User user)
+        public TodoItem RemoveAssignee(Assignee user)
         {
             Assignee.Remove(user);
             UpdatedAt = DateTime.UtcNow;
             return this;
         }
 
-        public TodoItem UpdateAssignee(List<User> assignee)
+        public TodoItem UpdateAssignees(List<Assignee> assignees)
         {
-            Assignee = assignee;
+            Assignee = assignees;
             UpdatedAt = DateTime.UtcNow;
             return this;
         }
 
-        public void UpdateIsCompleted(bool isCompleted)
+        public TodoItem UpdateIsCompleted(bool isCompleted)
         {
             IsCompleted = isCompleted;
             UpdatedAt = DateTime.UtcNow;
+            return this;
         }
 
-        public void UpdateDueDate(DateTime dueDate)
+        public TodoItem UpdateDueDate(DateTime dueDate)
         {
             DueDate = dueDate;
             UpdatedAt = DateTime.UtcNow;
+            return this;
+
         }
 
-        public void UpdatePriority(int priority)
+        public TodoItem UpdatePriority(int priority)
         {
             Priority = priority;
             UpdatedAt = DateTime.UtcNow;
+            return this;
+
         }
     }
 }

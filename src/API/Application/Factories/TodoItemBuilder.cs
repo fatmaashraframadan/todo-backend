@@ -12,9 +12,9 @@ namespace API.Application.Factories
             _todoItem = new TodoItem(title, description, creatorId);
         }
 
-        public TodoItemBuilder WithAssignees(List<User> assignees)
+        public TodoItemBuilder WithAssignees(List<Assignee> assignees)
         {
-            _todoItem.UpdateAssignee(assignees);
+            _todoItem.UpdateAssignees(assignees);
             return this;
         }
 

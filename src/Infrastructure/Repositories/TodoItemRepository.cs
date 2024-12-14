@@ -28,32 +28,38 @@ namespace Infrastructure.Repositories
 
         public Task<TodoItem> FindById(Guid id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<TodoItem>.Filter.Eq(x => x.Id, id);
+            return _TodoItemContext.Collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public Task GetTaskByIdAsync(Guid id)
+        public Task GetTodoItemsByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TodoItem>> GetTasksAsync()
+        public Task<List<TodoItem>> GetTodoItemsAsync()
+        {
+            return _TodoItemContext.Collection.Find(_ => true).ToListAsync();
+        }
+
+        public Task<IEnumerable<TodoItem>> GetTodoItemsByDueDateAsync(DateTime dueDate)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TodoItem>> GetTasksByDueDateAsync(DateTime dueDate)
+        public async Task<IEnumerable<TodoItem>> GetTodoItemsByCreatorIdAsync(Guid userId)
         {
-            throw new NotImplementedException();
+            var filter = Builders<TodoItem>.Filter.Eq(x => x.CreatorId, userId);
+            var todoItems = await _TodoItemContext.Collection.Find(filter).ToListAsync();
+            return todoItems;
         }
 
-        public Task<IEnumerable<TodoItem>> GetTasksByUserIdAsync(Guid userId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task UpdateTaskAsync(TodoItem task)
+        public Task UpdateTodoItemsAsync(TodoItem task)
         {
-            throw new NotImplementedException();
+            var filter = Builders<TodoItem>.Filter.Eq(x => x.Id, task.Id);
+            _TodoItemContext.Collection.ReplaceOneAsync(filter, task);
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,5 +1,4 @@
-
-
+using API.Application.Commands.Task;
 using API.Application.Commands.TodoItem;
 using Domain.TodoItemAggregate;
 
@@ -17,5 +16,18 @@ namespace API.Application.Factories
 
             return todoItem;
         }
+
+        public TodoItem Edit(TodoItem todoItem, EditTodoItemCommand command)
+        {
+            todoItem.UpdateTitle(command.Input.Title ?? todoItem.Title)
+                .UpdateDescription(command.Input.Description ?? todoItem.Description)
+                .UpdateIsCompleted(command.Input.IsCompleted ?? todoItem.IsCompleted)
+                .UpdatePriority(command.Input.Priority ?? todoItem.Priority)
+                .UpdateDueDate(command.Input.DueDate ?? todoItem.DueDate)
+                .UpdateAssignees(command.Input.Assignees ?? todoItem.Assignee);
+
+            return todoItem;
+        }
+
     }
 }
