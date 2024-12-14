@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "cead16a7-dcf7-4a00-ac21-4da06da66b88",
+		"name": "todo-.Net",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10825556"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TodoItem",
+			"item": [
+				{
+					"name": "AddTodoItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Complete Project Documentation\",\n  \"Description\": \"Finalize the project documentation and submit for review.\",\n  \"CreatorId\": \"f7c3d39a-8b79-47b9-a7f8-3c9ed8c9d2d5\",  // Example GUID, replace with actual GUID\n  \"Assignees\": [\n    {\n      \"Id\": \"a1c9a342-ada2-423f-b2f7-ea9b27a4fe01\",  // Example Assignee User GUID, replace with actual GUID\n      \"Name\": \"John Doe\",\n      \"Email\": \"johndoe@example.com\"\n    }\n  ],\n  \"DueDate\": \"2024-12-21T00:00:00\",  // Example date, replace with actual due date\n  \"Priority\": 2,  // Medium priority (1 = High, 2 = Medium, 3 = Low)\n  \"IsCompleted\": false\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5276/api/add-todo-item/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5276",
+							"path": [
+								"api",
+								"add-todo-item",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTodoItem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5276/api/todo-item/9132306a-e933-43c7-b6d9-b5e2c0932dbd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5276",
+							"path": [
+								"api",
+								"todo-item",
+								"9132306a-e933-43c7-b6d9-b5e2c0932dbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllTodoItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5276/api/todo-items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5276",
+							"path": [
+								"api",
+								"todo-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditTodoItem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":\"9132306a-e933-43c7-b6d9-b5e2c0932dbd\",\n    \"Title\":\"updated title\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5276/api/edit-todo-item/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5276",
+							"path": [
+								"api",
+								"edit-todo-item",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-todo-item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\":\"9132306a-e933-43c7-b6d9-b5e2c0932dbd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5276/api/delete-todo-item/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5276",
+							"path": [
+								"api",
+								"delete-todo-item",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
