@@ -2,4 +2,7 @@ bin/
 obj/
 
 
-.vsconfig
+*.vsconfig
+*.cache
+*.dll
+*.pdb
