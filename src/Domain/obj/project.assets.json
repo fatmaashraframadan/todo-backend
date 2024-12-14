@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/Domain/Domain.csproj",
+      "projectUniqueName": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/Domain/Domain.csproj",
+      "projectPath": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/Domain.csproj",
       "packagesPath": "/home/fatemaashraf/.nuget/packages/",
-      "outputPath": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/Domain/obj/",
+      "outputPath": "/home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/fatemaashraf/.nuget/NuGet/NuGet.Config"
