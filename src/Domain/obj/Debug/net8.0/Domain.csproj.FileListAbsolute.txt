@@ -2,8 +2,6 @@
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/bin/Debug/net8.0/Domain.dll
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/bin/Debug/net8.0/Domain.pdb
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
-/home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
-/home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.sourcelink.json
 /home/fatemaashraf/Documents/TODO/Backend/todo-backend/src/Domain/obj/Debug/net8.0/Domain.dll

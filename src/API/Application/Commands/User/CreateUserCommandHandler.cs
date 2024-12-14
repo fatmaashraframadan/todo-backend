@@ -1,5 +1,3 @@
-
-
 using Domain.UserAggregate;
 using Infrastructure.Interfaces;
 using MediatR;
@@ -9,12 +7,10 @@ namespace API.Application.Commands.User
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IMediator _mediator;
 
-        public CreateUserCommandHandler(IUserRepository userRepository, IMediator mediator)
+        public CreateUserCommandHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _mediator = mediator;
         }
 
         public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -27,8 +23,8 @@ namespace API.Application.Commands.User
                 UserRole.Admin
             );
 
-            //  await _userRepository.AddAsync(user);
-            return new Guid();//user.Id;
+            await _userRepository.AddAsync(user);
+            return user.Id;
         }
     }
 }

@@ -7,9 +7,22 @@
     <RootNamespace>todo_backend</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
+    <PackageReference Include="MongoDB.Driver" Version="3.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="./src/Domain/Domain.csproj" />
+    <ProjectReference Include="./src/Infrastructure/Infrastructure.csproj" />
+    
+</ItemGroup>
 
 </Project>

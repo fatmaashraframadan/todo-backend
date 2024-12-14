@@ -5,21 +5,17 @@ namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        /*     private readonly ApplicationDbContext _context;
+        private readonly BaseContext<User> _userContext;
 
-             public UserRepository(ApplicationDbContext context)
-             {
-                 _context = context;
-             }
-
-             public async Task AddAsync(User user)
-             {
-                 await _context.Users.AddAsync(user);
-                 await _context.SaveChangesAsync();
-             }*/
-        public Task AddAsync(User user)
+        public UserRepository(BaseContext<User> userContext)
         {
-            throw new NotImplementedException();
+            _userContext = userContext;
+        }
+
+        public async Task<Guid> AddAsync(User user)
+        {
+            await _userContext.Collection.InsertOneAsync(user);
+            return user.Id;
         }
     }
 }
