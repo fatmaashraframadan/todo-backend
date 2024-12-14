@@ -1,21 +1,29 @@
 using Domain.TodoItemAggregate;
 using Infrastructure.Interfaces;
+using MongoDB.Driver;
 
 namespace Infrastructure.Repositories
 {
-    public class TaskRepository : ITodoItemRepository
+    public class TodoItemRepository : ITodoItemRepository
     {
-        private readonly BaseContext<TodoItem> _TaskContext;
+        private readonly BaseContext<TodoItem> _TodoItemContext;
 
-        public TaskRepository(BaseContext<TodoItem> TaskContext)
+        public TodoItemRepository(BaseContext<TodoItem> TaskContext)
         {
-            _TaskContext = TaskContext;
+            _TodoItemContext = TaskContext;
         }
 
         public async Task<Guid> AddTodoItemAsync(TodoItem task)
         {
-            await _TaskContext.Collection.InsertOneAsync(task);
+            await _TodoItemContext.Collection.InsertOneAsync(task);
             return task.Id;
+        }
+
+        public Task<bool> DeleteTodoItemAsync(Guid todoItemId)
+        {
+            var filter = Builders<TodoItem>.Filter.Eq(x => x.Id, todoItemId);
+            _TodoItemContext.Collection.DeleteOneAsync(filter);
+            return Task.FromResult(true);
         }
 
         public Task<TodoItem> FindById(Guid id)

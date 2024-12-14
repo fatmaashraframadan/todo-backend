@@ -12,5 +12,6 @@ namespace Infrastructure.Interfaces
         Task<IEnumerable<TodoItem>> GetTasksByDueDateAsync(DateTime dueDate);
 
         Task<TodoItem> FindById(Guid id);
+        Task<bool> DeleteTodoItemAsync(Guid todoItemId);
     }
 }
